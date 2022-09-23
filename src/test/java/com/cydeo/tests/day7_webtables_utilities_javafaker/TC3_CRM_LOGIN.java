@@ -35,6 +35,7 @@ public class TC3_CRM_LOGIN extends TestBase {
 
         // 6. Verify title is as expected:
         // Expected: Portal
+        TC2_BrowserUtility.sleep(3);
 
         BrowserUtils.verifyTitle(driver,"Portal");
 
@@ -45,11 +46,11 @@ public class TC3_CRM_LOGIN extends TestBase {
         // 1. Create new test and make set ups
         // 2. Go to : http://login1.nextbasecrm.com/
         driver.get("https://login1.nextbasecrm.com/");
-
-        CRM_Utilities.crm_login(driver);
+        TC2_BrowserUtility.sleep(3);
+        CRM_Utilities.crm_login(driver,"helpdesk3@cybertekschool.com","UserUser");
         // 6. Verify title is as expected:
         // Expected: Portal
-        BrowserUtils.verifyTitle(driver,"Portal");
+        BrowserUtils.verifyTitle(driver,"(3) Portal");
 
     }
 
@@ -58,10 +59,18 @@ public class TC3_CRM_LOGIN extends TestBase {
         // 1. Create new test and make set ups
         // 2. Go to : http://login1.nextbasecrm.com/
         driver.get("https://login1.nextbasecrm.com/");
-
+        TC2_BrowserUtility.sleep(3);
         CRM_Utilities.crm_login(driver,"helpdesk2@cybertekschool.com","UserUser");
         // 6. Verify title is as expected:
         // Expected: Portal
+        BrowserUtils.verifyTitle(driver,"Portal");
+
+    }
+
+    @Test
+    public void crm_login_test4(){
+        driver.get("https://login1.nextbasecrm.com/");
+        TC4_LogInUtilityMethod.login_crm(driver,"helpdesk1@cybertekschool.com","UserUser");
         BrowserUtils.verifyTitle(driver,"Portal");
 
     }
